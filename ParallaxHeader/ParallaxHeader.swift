@@ -14,15 +14,15 @@ public typealias ParallaxHeaderHandlerBlock = (_ parallaxHeader: ParallaxHeader)
 
 
 private let parallaxHeaderKVOContext = UnsafeMutableRawPointer.allocate(
-    bytes: 4,
-    alignedTo: 1
+    byteCount: 4,
+    alignment: 1
 )
 
-class ParallaxView: UIView {
+public class ParallaxView: UIView {
     
     fileprivate weak var parent: ParallaxHeader!
     
-    override func willMove(toSuperview newSuperview: UIView?) {
+    override public func willMove(toSuperview newSuperview: UIView?) {
         guard let scrollView = self.superview as? UIScrollView else {
             return
         }
@@ -35,7 +35,7 @@ class ParallaxView: UIView {
         )
     }
     
-    override func didMoveToSuperview() {
+    override public func didMoveToSuperview() {
         guard let scrollView = self.superview as? UIScrollView else {
             return
         }
